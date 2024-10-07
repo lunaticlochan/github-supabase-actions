@@ -9,7 +9,7 @@ on:
       - closed
   push:
     branches:
-      - main
+      - master
       - develop
   workflow_dispatch:
 
