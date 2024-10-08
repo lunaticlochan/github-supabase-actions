@@ -26,10 +26,4 @@ jobs:
       - run: supabase link --project-ref $SUPABASE_PROJECT_ID
 
       # Push database migrations
-      - run: supabase db push
-
-      # Deploy config.toml changes (Ensure you have config.toml in your repository)
-      - run: supabase secrets set config.toml --file ./supabase/config.toml
-
-      # Restart the project services to apply the changes (optional)
-      - run: supabase restart
+      - run: supabase db reset
