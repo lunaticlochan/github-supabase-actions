@@ -16,9 +16,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      # Install Supabase CLI
       - uses: supabase/setup-cli@v1
         with:
           version: latest
 
+      # Link Supabase project to CLI
       - run: supabase link --project-ref $SUPABASE_PROJECT_ID
+
+      # Push database migrations
       - run: supabase db push
+
+      # Deploy config.toml changes (Ensure you have config.toml in your repository)
+      - run: supabase secrets set config.toml --file ./path/to/config.toml
+
+      # Restart the project services to apply the changes (optional)
+      - run: supabase restart
