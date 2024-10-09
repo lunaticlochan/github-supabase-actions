@@ -26,4 +26,4 @@ jobs:
       - run: supabase link --project-ref $SUPABASE_PROJECT_ID
 
       # Push database migrations
-      - run: supabase db reset
+      - run: supabase db push
